@@ -1,0 +1,11 @@
+{
+  "name": "cimple-time-tracker-app",
+  "homepage": "https://kishoregs.github.io/cimple-time-tracker-app",
+  "version": "0.0.1",
+  "description": "A description for your project.",
+  "main": "index.html",
+  "browserslist": [
+    "last 2 versions",
+    "> 0.25%"
+  ]
+}

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<link type="text/css" rel="stylesheet" id="dark-mode-general-link">
+<link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
+<style lang="en" type="text/css" id="dark-mode-custom-style"></style>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Time Tracker - Cimple</title>
+
+  <meta name="description" content="A super easy time tracker.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="./src/main.min.css">
+
+  <meta name="msapplication-TileColor" content="#27bd8b">
+  <meta name="theme-color" content="#27bd8b">
+
+</head>
+
+<body class="is-touch-device">
+
+  <div class="bg-top"></div>
+  <div class="bg-bottom"></div>
+
+  <div class="overlay"></div>
+  <div class="open-intro-container">
+    <div class="open-intro show-me"><img src="./src/intro-thumb.png"></div>
+  </div>
+
+  <div class="wrapper colored-background">
+
+    <section class="header-container">
+      <div class="header-left">
+        <img class="logo" src="./src/logo-light.svg">
+        <p class="range">Today</p>
+        <p class="today-summary"><span class="time">0s</span></p>
+      </div>
+      <div class="header-right">
+        <div class="chat-button icon-button"></div>
+        <div class="menu-button icon-button"></div>
+      </div>
+    </section>
+
+    <section class="main-container">
+      <div class="main-inside">
+        <p class="mr-talker hidden">...</p>
+        <div class="projects-content">
+          <p class="tag projects-button dark-hover" data-project-id="0"><img class="dropdown-icon"
+              src="./src/dropdown-light.svg"><span class="name">All tasks</span><span
+              class="tracking-indicator"></span><img class="more-icon dark-hover" src="./src/more-light.svg"></p>
+          <div class="dropdown projects-dropdown">
+            <p class="button" data-project-id="0">All tasks<span class="tracking-indicator"></span></p>
+            <div class="projects-holder">
+              <!-- Lists will load here -->
+              <p class="project-button button" data-project-id="2">My first list<span class="tracking-indicator"></span>
+              </p>
+            </div>
+            <div class="input-container new-project">
+              <input class="input" placeholder="+ New list" size="5" maxlength="22">
+              <div class="accept"></div>
+            </div>
+          </div>
+          <div class="dropdown projects-options">
+            <p class="button reporting trigger-list" data-interval-id="2"><span class="time">24h 33m</span> <span
+                class="time-span" data-interval-id="2">This week</span> <span class="info">on this list</span></p>
+            <div class="time-list list-to-trigger">
+              <p class="button list-item" data-interval-id="1">Yesterday</p>
+              <p class="button list-item" data-interval-id="2">This week</p>
+              <p class="button list-item" data-interval-id="3">Last week</p>
+              <p class="button list-item" data-interval-id="4">This month</p>
+              <p class="button list-item" data-interval-id="5">Last month</p>
+              <p class="button list-item" data-interval-id="6">All time</p>
+            </div>
+            <div class="close-if-list-open">
+              <p class="button show-completed">Show completed tasks</p>
+              <p class="button rename">Rename</p>
+              <p class="button remove tooltip-remove-list tooltipstered">Remove</p>
+            </div>
+          </div>
+        </div>
+        <div class="task-container">
+          <p class="small new-task-limit floating info-box"><span class="text-button open-upgrade">INFO - </span> Max
+            limit
+            is 5 tasks. To continue, complete a task.</p>
+          <div class="dropdown task-options">
+            <p class="task-name input-text" contenteditable="true"></p>
+            <p class="button trigger-list choose-project">No list</p>
+            <div class="projects list-to-trigger">
+              <p class="button project no-project" data-project-id="0" style="display:none;">No list</p>
+              <p class="button project" data-project-id="2">My first list</p>
+            </div>
+            <div class="close-if-list-open">
+              <p class="button complete">Complete</p>
+              <div class="input-container total-time">
+                <input class="input time" placeholder="..." size="5">
+                <!--<img class="manual-time-info tooltip-manual-time" title="Total time on task. Edit it to add time manually." src="media/icons/info-dark.svg">-->
+                <div class="accept"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tasks will load below this -->
+
+        </div>
+        <p class="tag show-more-tasks dark-hover hide-me"><img class="add-icon" src="./src/add-light.svg">More tasks
+          (<span class="total-more-tasks"></span>)</p>
+        <p class="tag new-task-button dark-hover tooltip-add-task tooltipstered click-me"><img class="add-icon"
+            src="./src/add-light.svg">New task</p>
+      </div>
+    </section>
+
+    <div class="normal-container create-account">
+      <div class="create-account-inside">
+        <img class="close-create-account" src="./src/close-dark.svg">
+        <p class="text"><span class="inner-text">Sign up to save</span><img class="smiley" src="./src/smiley-dark.svg">
+        </p>
+        <div class="input-container email">
+          <input class="input" placeholder="Email" size="10" type="email" autocomplete="username">
+        </div>
+        <div class="input-container password">
+          <input class="input tooltip-sign-up tooltipstered" placeholder="Password" size="10" type="password"
+            autocomplete="new-password" data-tooltip-content="#tooltip-sign-up"
+            style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+          <div class="accept to-right"></div>
+        </div>
+        <p class="info-text small">...</p>
+      </div>
+    </div>
+
+
+    <div class="menu">
+      <div class="fake-bg"></div>
+      <div class="close-menu"></div>
+      <div class="standard menu-container">
+        <div class="profile colored-background">
+          <div class="free-profile">
+            <div class="picture"></div>
+            <p class="profile-type">Free Rider</p>
+            <p class="profile-extras lighter">Free</p>
+            <div class="profile-button upgrade">
+              <p>Upgrade</p>
+            </div>
+          </div>
+          <div class="upgrade-profile">
+            <div class="picture"></div>
+            <p class="profile-type">Cimple Ninja</p>
+            <p class="profile-extras lighter"><span class="money">$8</span>/month</p>
+            <div id="checkout-button-plan_FRMCYjlh0G7Sb5" class="profile-button show-pay" style="display: none;">
+              <p>Card<img class="credit-card" src="./src/credit-card-light.svg"></p>
+            </div>
+            <p class="bubble">Unlimited tasks</p>
+            <p class="profile-extras lighter">Paid yearly</p>
+            <div class="go-back"></div>
+          </div>
+          <div class="unlimited-profile">
+            <div class="picture"></div>
+            <p class="profile-type">Cimple Ninja</p>
+            <p class="lighter profile-extras">Unlimited tasks</p>
+          </div>
+        </div>
+        <div class="standard-contents">
+          <!--
+      <div class="button-group">
+        <div class="normal-menu-button interval-button trigger-list"  data-interval-id="2">This week</div>
+        <div class="interval-list list-to-trigger">
+          <p class="normal-menu-button list-item" data-interval-id="1">Yesterday</p>
+          <p class="normal-menu-button list-item" data-interval-id="2">This week</p>
+          <p class="normal-menu-button list-item" data-interval-id="3">Last week</p>
+          <p class="normal-menu-button list-item" data-interval-id="4">This month</p>
+          <p class="normal-menu-button list-item" data-interval-id="5">Last month</p>
+          <p class="normal-menu-button list-item" data-interval-id="6">All time</p>
+        </div>
+        <div class="normal-menu-button static statics-button"><span class="time"></span></div>
+      </div>
+      -->
+          <!--
+      <div class="button-group">
+        <div class="normal-menu-button currency-button trigger-list">Currency (<span class="add-currency"></span>)</div>
+        <div class="currency-list list-to-trigger"></div>
+        <div class="normal-menu-button hourly-rate-button"><input class="hourly-rate currency-before-after" size="3" value="100" placeholder="100"><span>/hour</span></div>
+      </div>
+      -->
+          <div class="button-group">
+            <div class="normal-menu-button sign-up-button" style="display: block;">Sign up</div>
+            <div class="normal-menu-button introduction-button">Introduction</div>
+            <div class="normal-menu-button vision-button trigger-list">Vision</div>
+            <div class="vision-list list-to-trigger">
+              <p class="paragraph small">Cimple is part of something greater than just being a time tracker. Cimple is
+                out there to shape the future. With more and more simple software we believe that there are a future to
+                look forward to. A future where revenue isn't the main priority, but simplicity and experience is.
+                Thanks for being a part of the journey!</p>
+            </div>
+            <div class="normal-menu-button open-chat-button">Chat</div>
+          </div>
+          <div class="button-group">
+            <div class="normal-menu-button sign-in-button" style="display: block;">Log in</div>
+            <div class="normal-menu-button change-password trigger-list" style="display: none;">Change password</div>
+            <div class="password-list list-to-trigger">
+              <div class="input-container current-password"><input class="input" placeholder="Current password"
+                  size="10" type="password" autocomplete="current-password"
+                  style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+              </div>
+              <div class="input-container new-password"><input class="input" placeholder="New password" size="10"
+                  type="password" autocomplete="new-password"
+                  style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+              </div>
+              <div class="input-container confirm-password">
+                <input class="input" placeholder="Confirm password" size="10" type="password"
+                  autocomplete="new-password"
+                  style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                <div class="accept"></div>
+              </div>
+            </div>
+            <div class="normal-menu-button privacy-button">Privacy policy</div>
+            <div class="normal-menu-button log-out-button" style="display: none;">Log out</div>
+          </div>
+        </div>
+      </div>
+      <div class="intro menu-container">
+        <div class="intro-text colored-background">
+          <img class="logo" src="./src/logo-light.svg" alt="Cimple time tracking app light logo">
+          <p class="paragraph">Manage your time effortlessly without complicated fields or dozens of buttons to click,
+            just plain time tracking. Track time with one click and know how much to bill your clients.</p>
+        </div>
+        <div class="intro-contents">
+          <div class="menu-inside-container comparison">
+            <table>
+              <colgroup>
+                <col style="width:55%">
+                <col style="width:22.5%">
+                <col style="width:22.5%">
+              </colgroup>
+              <tbody>
+                <tr class="table-header">
+                  <th></th>
+                  <th><img class="small-logo" src="./src/logo-colored.svg" alt="Cimple time tracking app colored logo">
+                  </th>
+                  <th>
+                    <p class="small">Others</p>
+                  </th>
+                </tr>
+                <tr class="table-top">
+                  <td>
+                    <p>Start a task</p>
+                  </td>
+                  <td>
+                    <p>2s</p>
+                  </td>
+                  <td>
+                    <p>15s</p>
+                  </td>
+                </tr>
+                <tr class="table-bottom">
+                  <td>
+                    <p>Super cimple</p>
+                  </td>
+                  <td>
+                    <p>Yes</p>
+                  </td>
+                  <td>
+                    <p>No</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="menu-inside-container features">
+            <table>
+              <tbody>
+                <tr class="table-header">
+                  <th>
+                    <p class="small to-left">Features</p>
+                  </th>
+                </tr>
+                <tr class="table-top">
+                  <td>
+
+                    </p>
+                  </td>
+                </tr>
+                <tr class="table-middle">
+                  <td>
+                    <p>Todo lists<img class="check-icon" src="./src/check-mark-colored.svg"></p>
+                  </td>
+                </tr>
+                <!-- <tr class="table-middle">
+                  <td>
+                    <p>Reporting<img class="check-icon" src="./src/check-mark-colored.svg"></p>
+                  </td>
+                </tr> -->
+                <!-- <tr class="table-bottom">
+                  <td>
+                    <p class="lighter">Powerful reporting (coming)</p>
+                  </td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+          <div class="menu-inside-container pricing">
+            <div class="row">
+              <p>Price</p>
+              <p class="colored">Free <img class="smiley" src="./src/smiley-colored.svg"></p>
+            </div>
+            <!-- <div class="row light">
+              <p>&gt; 5 tasks</p>
+              <p>$8/month</p>
+            </div> -->
+          </div>
+          <div class="menu-inside-container buttons">
+            <div class="show-me-cimple">
+              <p>Open Cimple<img class="smiley" src="./src/smiley-light.svg"></p>
+            </div>
+            <!-- <div class="sign-in">
+              <p>Log in</p>
+            </div>
+            <div class="sign-up">
+              <p>Sign up</p>
+            </div>
+            <div class="sign-form">
+              <div class="input-container email">
+                <input class="input" placeholder="Email" size="10" type="email" autocomplete="username"
+                  style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAPhJREFUOBHlU70KgzAQPlMhEvoQTg6OPoOjT+JWOnRqkUKHgqWP4OQbOPokTk6OTkVULNSLVc62oJmbIdzd95NcuGjX2/3YVI/Ts+t0WLE2ut5xsQ0O+90F6UxFjAI8qNcEGONia08e6MNONYwCS7EQAizLmtGUDEzTBNd1fxsYhjEBnHPQNG3KKTYV34F8ec/zwHEciOMYyrIE3/ehKAqIoggo9inGXKmFXwbyBkmSQJqmUNe15IRhCG3byphitm1/eUzDM4qR0TTNjEixGdAnSi3keS5vSk2UDKqqgizLqB4YzvassiKhGtZ/jDMtLOnHz7TE+yf8BaDZXA509yeBAAAAAElFTkSuQmCC&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+              </div>
+              <div class="input-container password">
+                <input class="input tooltip-sign-up tooltipstered" placeholder="Password" size="10" type="password"
+                  autocomplete="current-password" data-tooltip-content="#tooltip-sign-up"
+                  style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                <div class="accept"></div>
+              </div>
+              <p class="info-text small">...</p>
+            </div> -->
+          </div>
+          <div class="logo-foot">
+            <img class="logo lighter" src="./src/logo-dark.svg" alt="Cimple time tracking app dark logo">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="discrete-popup">
+      <p class="text">...</p>
+    </div>
+
+    <section class="popup-container">
+      <div class="content-page new-password">
+        <div class="colored-background">
+          <h2 class="header">Type a new password</h2>
+        </div>
+        <div class="password-container">
+          <div class="input-container password">
+            <input class="input" placeholder="Password" size="10" type="password" autocomplete="new-password"
+              style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+          </div>
+          <div class="input-container confirm-password">
+            <input class="input" placeholder="Confirm" size="10" type="password" autocomplete="new-password"
+              style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+            <div class="accept"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="tooltip_templates">
+    <span id="tooltip-sign-up">By signing in you agree to Cimples <a class="text-button" href="#" target="_blank">Terms
+        of service</a> and <a class="text-button" href="#" target="_blank">Privacy policy</a></span>
+  </div>
+
+
+
+  <script src="./src/main.min.js"></script>
+
+
+</body>
+
+</html>
